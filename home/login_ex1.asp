@@ -1,36 +1,7 @@
 <!doctype html>
 <html lang = "ko-kr">
 <head>
-  <meta charset = "utf-8"/>
-  <meta name = "viewport" content = "initial-scale = 1">
-  <title> Login Example ! </title>
-
-  <link href = "css/bootstrap.min.css" rel = "stylesheet">
-
-  <style type=”text/css”>
-
-  #nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-  }
-
-  #nav li {
-      float: left;
-      position: relative;
-  }
-
-  .show {display:block;}
-  </style>
-
-  <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
-  <!--WARING: Respond.js doesn't work if you view the page via file://-->
-  <!--[if It IE 9]>
-    <script src = https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js></script>
-    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  
 
 </head>
 <body bgcolor="pink" text="white">
