@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang = "ko-kr">
+<head>
+  <meta charset = "utf-8"/>
+  <meta name = "viewport" content = "initial-scale = 1">
+  <title> Login Example ! </title>
+
+  <link href = "css/bootstrap.min.css" rel = "stylesheet">
+
+  <style>
+
+
+  </style>
+
+</head>
+<body bgcolor="pink" text="white">
+
+  <h1 align=center>Create New Diary Room</h1>
+
+  <h2>일기장 정보를 입력해주세요</h1>
+
+  <p>일기장 이름  <input type="text" class = "new" name="diaryname"></p>
+  <p>방 멤버  </p>
+  <p>첫 멤버 <input type="text" class = "new" name="member1"></p>
+  <p>2번째 멤버 <input type="text" class = "new" name="member2"></p>
+  <p>3번째 멤버 <input type="text" class = "new" name="member3"></p>
+  <p>4번째 멤버 <input type="text" class = "new" name="member4"></p>
+  <p>5번째 멤버 <input type="text" class = "new" name="member5"></p>
+  <p>6번째 멤버 <input type="text" class = "new" name="member6"></p>
+  <ul>
+    <li class="dropdown1">
+      <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">MYROOM</a>
+      <div class="dropdown-content" id="myDropdown">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+      </div>
+  </ul>
+
+  <p>방 비밀번호   <input type="password" class = "new" name="diarypwd"></p>
+
+
+  <button type="submit" value="완료" onclick="location.href='http://localhost/healingCamp/dashboard/index.asp'">일기장 생성</button>
+
+
+
+</body>
+</html>

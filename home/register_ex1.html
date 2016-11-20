@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang = "ko-kr">
+<head>
+  <meta charset = "utf-8"/>
+  <meta name = "viewport" content = "initial-scale = 1">
+  <title> Register Example ! </title>
+
+  <link href = "css/bootstrap.min.css" rel = "stylesheet">
+
+  <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+  <!--WARING: Respond.js doesn't work if you view the page via file://-->
+  <!--[if It IE 9]>
+    <script src = https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js></script>
+    <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body bgcolor="pink" text="white">
+  <form name="FORM2" action="http://localhost/healingCamp/home/login_ex1.asp" method="post" onsubmit="return check();">
+    <div align="center"><table border=0 cellpadding="2" cellspacing="0" bordercolordark="eeeeee" bordercolorlight="#464646">
+
+      <h1> 회원가입하기 </h1>
+
+      <tr>
+        <td width="99" align=left>
+          <p> NICKNAME : <input type="text" class = "register" name="nickname" ></p>
+        </td>
+        <br> <p><font size = "1"> 활동하실 별명을 입력해주세요 </font>
+      </tr>
+
+      <tr>
+        <td width="99" align=left>
+          <p> ID : <input type="text" class = "register" name="id"></p>
+        </td>
+        <br>
+      </tr>
+
+      <tr>
+        <td width="99" align=left>
+          <p> PASSWORD : <input type="password" class = "register" name="pwd" ></p>
+        </td>
+        <br>
+      </tr>
+      <!--<p>ID : <input type="text" class = "login" name="id"></p>-->
+      <!--<p>PASSWORD : <input type="password" name="pwd"></p>-->
+      <tr>
+        <td width="680" align="center" colspan="3" ><p>
+          <input type="reset">
+          <input type="submit" value = "COMPLETE">
+        </td>
+      </tr>
+    </form>
+
+
+    <!--jQuery (necessary for Bootstrap's Javascript pliugins)-->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!--Include all compiled plugins (below),or include individual files as needed-->
+    <script sr = "js/bootstrap.min.js"></script>
+
+</body>
+</html>
