@@ -4,7 +4,12 @@
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
     <style>
     body {
-      background-image: url("http://localhost/app/assets/images/dashBackground.png");
+      /*background: url('dashBackground.png');*/
+      background-color:black;
+    }
+    .btn{
+      background-color:#cc6600;
+      color:white;
     }
     </style>
   </head>
@@ -33,10 +38,10 @@
       </div>
 
       <script src="js/bootstrap.min.js"></script>
-      <div class="btn-group" role="group" aria-label="...">
+      <!-- <div class="btn-group" role="group" aria-label="..."> -->
         <button type="button" class="btn btn-default">수정</button>
         <button type="button" class="btn btn-default">삭제</button>
         <button type="button" class="btn btn-default">새 일기장</button>
-      </div>
+      <!-- </div> -->
   </body>
 </html>

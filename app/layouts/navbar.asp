@@ -1,5 +1,10 @@
 <!-- 기본 네비바 -->
-<nav class="navbar navbar-light bg-faded">
+<style>
+  a{
+    color:#cc6600;
+  }
+</style>
+<nav class="navbar navbar-light" style="background-color: white;">
   <ul class="nav navbar-nav">
     <li class="nav-item active">
       <a class="navbar-brand" href="#">healingCamp</a>
