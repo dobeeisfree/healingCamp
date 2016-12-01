@@ -1,9 +1,9 @@
 <%
 '1. ADODB.Connection 위한 변수를 미리 준비한다.
 Dim dsn, uid, pwd
-dsn = "" 'sql server(localhost)의 별칭
-uid = "" 'sql server 로그인이름
-pwd = "" 'sql server 비밀번호
+dsn = "JBH" 'sql server(localhost)의 별칭
+uid = "JBHWANG" 'sql server 로그인이름
+pwd = "zxcv8911" 'sql server 비밀번호
 
 
 '2. 작업자가 여러명이므로
