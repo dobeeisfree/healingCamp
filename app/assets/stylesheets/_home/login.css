@@ -1,0 +1,23 @@
+body {
+  background-image:url('http://localhost/app/assets/images/login_img.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.text{
+  margin-top: 100px;
+  margin-left: 600px;
+  /*text-align:center;*/
+}
+.button_c{
+  /*text-align:right;*/
+  margin-right: 250px;
+}
+div.button_c.form-group {
+  max-width: 200px;
+}
+div.loginform {
+  margin-left: 200px;
+}
+p.description {
+  font-size: 13px;
+}
