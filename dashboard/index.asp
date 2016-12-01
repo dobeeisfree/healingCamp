@@ -2,17 +2,19 @@
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
+    <style>
+    body {
+      background-image: url("http://localhost/app/assets/images/dashBackground.png");
+    }
+    </style>
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
 
       <!-- <p><%response.write(date())%></p> -->
 
       <!-- user_nickname을 받아오는 작업 필요 -->
-      <h1><%=Request.form("user_nickname")%>의 일기장</h1>
+      <h1><%Request.form("user_nickname")%>의 일기장</h1>
 
       <div class="panel panel-default">
         <!-- 일기장 이름 -->
