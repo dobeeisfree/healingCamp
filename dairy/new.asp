@@ -1,4 +1,7 @@
 <!-- TODO 자신의 순서가 왔을 경우, 일기를 작성할 수 있다 -->
+<%
+' 1. 일기 값들을 dairy/newProc.asp 로 전송
+%>
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
