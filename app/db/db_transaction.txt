@@ -1,0 +1,65 @@
+첫 로그인 페이지
+
+<로그인 버튼>
+"select * from USERS where user_id = " +입력된 id + " and user_password = " + 입력된 password;
+
+회원가입 페이지
+아이디<중복검사>
+select * from users where user_id =" + 입력된 id +";"
+//여기서는 값이 존재하면 안되겠지..?
+
+닉네임<중복검사>
+select * from users where user_nickname =" + 입력된 nickname +";"
+
+<완료>버튼
+"insert into USERS values ("+입력된 Id+","+입력된 nickname +","+입력된 password +"," + 입력된 name+");"
+
+데시보드 페이지
+"select * from diaries where diary_index IN (select diary_index from collaboraters where c.user_index = " 입력된 user_index+");"
+
+<일기장 생성>
+일기장 table insert
+"insert into diaries values("+입력된 name+","+입력된 passwd+","+입력된 creater_index+");"
+
+collabo테이블 insert
+"insert into collaboraters values("+입력된 +","+입력된 passwd+","+입력된 creater_index+");"
+
+
+//공유하는 user들 추가
+처음 닉네임 검색 후 user_index 반환 
+"select user_index from users where user_nickname = "+입력된 닉네임 값 +";"
+
+저장한 user_index를 다시 collaborater테이블에 insert 요청
+"insert into collaboraters values ("+입력된 user_index +", "+현재 diary_index +" ,"+입력된 교환 순서+";"
+
+<일기장 수정>
+수정 update해주기
+"update diaries set diary_name ='"+수정할 이름+"', diary_passwd ='"+수정할 비밀번호+"', diary_"+ "
+
+<멤버 수정>
+처음에 닉네임의 user_index검색
+"select u.user_index from users u, collaboraters c where u.user_nickname = "+입력된 닉네임 값 +"and u.user_index = c.user_index;"
+
+//이거를 만족하는 user_index
+"update collaboraters set user_index = "+입력된 user_index+", diary_index = "+입력된 diary index +", write_order = "+입력된 write_order +
+"where user_index = "+입력된 user_index "and diary index = "+ 현재 수정한 diary_index+";"
+
+//만족하지 않으면
+"insert into collaboraters values('+입력된 user_index+"','"
++ 현재 diary_index + "','"+
+현재 교환순서+"')"
+
+<일기장 삭제>
+"delete from diaries where diary_index = "+삭제할 diary_index+";"
+
+일기장 페이지
+
+일기 읽어오기
+"select * from paper where diary_index = "+입력된 diary_index+" order by created_date;"
+
+일기 쓰기 페이지
+"insert into paper(created_index, content, title, diary_index) values ('"+입력된 user_index+","+입력된 content+","+입력된 title+","+현재 diary_index+");"
+
+
+
+
