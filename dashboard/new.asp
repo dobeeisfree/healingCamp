@@ -5,39 +5,10 @@
 <head>
   <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
 
-  <Script Language="JAVAScript">
-  function check(){
-    var blank = 0 ;
-    if (FORM1.diaryname.value == "")
-    blank = 1 ;
-    if (FORM1.member1.value == "")
-    blank = 1 ;
-    if (FORM1.member2.value == "")
-    blank = 1 ;
-    if (FORM1.member3.value == "")
-    blank = 1 ;
-    if (FORM1.member4.value == "")
-    blank = 1 ;
-    if (FORM1.member5.value == "")
-    blank = 1 ;
-    if (FORM1.member6.value == "")
-    blank = 1 ;
-    if (FORM1.diarypwd.value == "")
-    blank = 1 ;
-    if (blank ==1)
-    {
-      alert("빈란이 있습니다. 채워주세요.") ;
-      return (false)
-    }
-    else
-    {
-      return (true) ;
-    }
-  }
-  </Script>
-
 </haed>
 <body>
+  <!--<link href="../app/assets/stylesheets/_home/login.css" rel="stylesheet" type="text/css" />-->
+  <script type="text/javascript" src="../app/assets/javascripts/dashboard/newCheck.js"></script>
   <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
 
   <h1 align=center>새 일기장 생성</h1>
