@@ -4,8 +4,8 @@
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
     <style>
     body {
-      /*background: url('dashBackground.png');*/
-      background-color:black;
+      background-image: url('/app/assets/images/dashdash.jpg');
+      /*background-color:black;*/
     }
     .btn{
       background-color:#cc6600;
@@ -19,7 +19,7 @@
       <!-- <p><%response.write(date())%></p> -->
 
       <!-- user_nickname을 받아오는 작업 필요 -->
-      <h1><%Request.form("user_nickname")%>의 일기장</h1>
+      <h1><%=Request.form("login_id")%>의 일기장</h1>
 
       <div class="panel panel-default">
         <!-- 일기장 이름 -->
