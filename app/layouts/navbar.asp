@@ -4,7 +4,7 @@
     color:#cc6600;
   }
 </style>
-<nav class="navbar navbar-light" style="background-color: white;">
+<nav class="navbar navbar-light" style="background-color: black;">
   <ul class="nav navbar-nav">
     <li class="nav-item active">
       <a class="navbar-brand" href="#">healingCamp</a>
