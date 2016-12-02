@@ -21,3 +21,7 @@ div.loginform {
 p.description {
   font-size: 13px;
 }
+button{
+  background-color:#cc6600;
+  color:white;
+}

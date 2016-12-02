@@ -28,8 +28,8 @@
               <label for="PASSWORD">PASSWORD</label>
               <input type="password" name="user_pwd" class="form-control login" id="PASSWORD" placeholder="비밀번호를 입력해주세요"></p>
             </div>
-            <button type="submit" class="btn_btn-default">로그인</button>
-            <a class="btn_btn-default" href="register.asp" role="button">회원가입</a>
+            <button type="submit" class="btn btn-default">로그인</button>
+            <a class="btn btn-default" href="register.asp" role="button">회원가입</a>
           </div>
         </table>
       </div>

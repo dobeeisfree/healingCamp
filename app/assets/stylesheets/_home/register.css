@@ -7,9 +7,7 @@ body {
 .text{
     margin-top: 100px;
     margin-left: 500px;
-    text-align:center;
-} 
-
+}
 .button_c{
   /*text-align:right;*/
   margin-right: 250px;
@@ -17,10 +15,14 @@ body {
 div.button_c.form-group {
   max-width: 200px;
 }
-div.loginform {
+div.registerform {
   margin-left: 200px;
 }
 p.description {
   font-size: 13px;
 
+}
+button{
+  background-color:#cc6600;
+  color:white;
 }
