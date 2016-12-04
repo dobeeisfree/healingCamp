@@ -1,64 +1,78 @@
-Ã¹ ·Î±×ÀÎ ÆäÀÌÁö
+ì²« ë¡œê·¸ì¸ í˜ì´ì§€
 
-<·Î±×ÀÎ ¹öÆ°>
-"select * from USERS where user_id = " +ÀÔ·ÂµÈ id + " and user_password = " + ÀÔ·ÂµÈ password;
+<ë¡œê·¸ì¸ ë²„íŠ¼>
+"select * from USERS where user_id = " +ì…ë ¥ëœ id + " and user_password = " + ì…ë ¥ëœ password;
 
-È¸¿ø°¡ÀÔ ÆäÀÌÁö
-¾ÆÀÌµğ<Áßº¹°Ë»ç>
-select * from users where user_id =" + ÀÔ·ÂµÈ id +";"
-//¿©±â¼­´Â °ªÀÌ Á¸ÀçÇÏ¸é ¾ÈµÇ°ÚÁö..?
+íšŒì›ê°€ì… í˜ì´ì§€
+ì•„ì´ë””<ì¤‘ë³µê²€ì‚¬>
+select * from users where user_id =" + ì…ë ¥ëœ id +";"
+//ì—¬ê¸°ì„œëŠ” ê°’ì´ ì¡´ì¬í•˜ë©´ ì•ˆë˜ê² ì§€..?
 
-´Ğ³×ÀÓ<Áßº¹°Ë»ç>
-select * from users where user_nickname =" + ÀÔ·ÂµÈ nickname +";"
+ë‹‰ë„¤ì„<ì¤‘ë³µê²€ì‚¬>
+select * from users where user_nickname =" + ì…ë ¥ëœ nickname +";"
 
-<¿Ï·á>¹öÆ°
-"insert into USERS values ("+ÀÔ·ÂµÈ Id+","+ÀÔ·ÂµÈ nickname +","+ÀÔ·ÂµÈ password +"," + ÀÔ·ÂµÈ name+");"
+<ì™„ë£Œ>ë²„íŠ¼
+"insert into USERS values ("+ì…ë ¥ëœ Id+","+ì…ë ¥ëœ nickname +","+ì…ë ¥ëœ password +"," + ì…ë ¥ëœ name+");"
 
-µ¥½Ãº¸µå ÆäÀÌÁö
-"select * from diaries where diary_index IN (select diary_index from collaboraters where c.user_index = " ÀÔ·ÂµÈ user_index+");"
+ë°ì‹œë³´ë“œ í˜ì´ì§€
+"select * from diaries where diary_index IN (select diary_index from collaboraters c where c.user_index = " ì…ë ¥ëœ user_index+");"
 
-<ÀÏ±âÀå »ı¼º>
-ÀÏ±âÀå table insert
-"insert into diaries values("+ÀÔ·ÂµÈ name+","+ÀÔ·ÂµÈ passwd+","+ÀÔ·ÂµÈ creater_index+");"
+<ì¼ê¸°ì¥ ìƒì„±>
+ì¼ê¸°ì¥ table insert
+"insert into diaries values("+ì…ë ¥ëœ name+","+ì…ë ¥ëœ passwd+","+ì…ë ¥ëœ creater_index+");"
 
-collaboÅ×ÀÌºí insert
-"insert into collaboraters values("+ÀÔ·ÂµÈ +","+ÀÔ·ÂµÈ passwd+","+ÀÔ·ÂµÈ creater_index+");"
+ê°€ì¥ ìµœê·¼ì— ì‚½ì…í•œ diary_index ê²€ìƒ‰
+"select TOP(1) diary_index from diaries order by diary_index desc;
+
+collaboí…Œì´ë¸” insert
+"insert into collaboraters values("+ì…ë ¥ëœ +","+ì…ë ¥ëœ passwd+","+ì…ë ¥ëœ creater_index+");"
 
 
-//°øÀ¯ÇÏ´Â userµé Ãß°¡
-Ã³À½ ´Ğ³×ÀÓ °Ë»ö ÈÄ user_index ¹İÈ¯ 
-"select user_index from users where user_nickname = "+ÀÔ·ÂµÈ ´Ğ³×ÀÓ °ª +";"
+<ìê¸° ì°¨ë¡€ì— ì•Œë¦¼ì£¼ê¸°>
 
-ÀúÀåÇÑ user_index¸¦ ´Ù½Ã collaboraterÅ×ÀÌºí¿¡ insert ¿äÃ»
-"insert into collaboraters values ("+ÀÔ·ÂµÈ user_index +", "+ÇöÀç diary_index +" ,"+ÀÔ·ÂµÈ ±³È¯ ¼ø¼­+";"
+ë¨¼ì € userê°€ ì°¸ì—¬í•œ diary_indexì™€ êµí™˜ìˆœì„œë¥¼ ë°›ì•„ì˜¨ë‹¤(ì´ê±° í–‰ ë‹¨ìœ„ë¡œ ë°°ì—´ ì €ì¥í•´ì•¼ê² ì§€)
 
-<ÀÏ±âÀå ¼öÁ¤>
-¼öÁ¤ updateÇØÁÖ±â
-"update diaries set diary_name ='"+¼öÁ¤ÇÒ ÀÌ¸§+"', diary_passwd ='"+¼öÁ¤ÇÒ ºñ¹Ğ¹øÈ£+"', diary_"+ "
+"select diary_index, writer_order from collaboraters where user_index = " +í˜„ì¬ user index +";"
 
-<¸â¹ö ¼öÁ¤>
-Ã³À½¿¡ ´Ğ³×ÀÓÀÇ user_index°Ë»ö
-"select u.user_index from users u, collaboraters c where u.user_nickname = "+ÀÔ·ÂµÈ ´Ğ³×ÀÓ °ª +"and u.user_index = c.user_index;"
+diaryì˜ êµí™˜ìˆœì„œì™€ userì˜ êµí™˜ìˆœì„œë¥¼ ë¹„êµí•œë‹¤. > ë‹¤ì´ì–´ë¦¬ ì´ë¦„ ì¶œë ¥
+(í–‰ ë‹¨ìœ„ë¡œ ê°’ ë„£ì–´ì„œ ê²€ì‚¬í•˜ë ´)
+"select d.diary_name from diaries d, write_order o where o.diary_index = " + ì•ì—ì„œ ë°›ì€ diary_index + 
+" and o.current_num = "+ì•„ê¹Œ ì°¾ì€ write_order +" and d.diary_index = o.diary_index;"
 
-//ÀÌ°Å¸¦ ¸¸Á·ÇÏ´Â user_index
-"update collaboraters set user_index = "+ÀÔ·ÂµÈ user_index+", diary_index = "+ÀÔ·ÂµÈ diary index +", write_order = "+ÀÔ·ÂµÈ write_order +
-"where user_index = "+ÀÔ·ÂµÈ user_index "and diary index = "+ ÇöÀç ¼öÁ¤ÇÑ diary_index+";"
+//ê³µìœ í•˜ëŠ” userë“¤ ì¶”ê°€
+ì²˜ìŒ ë‹‰ë„¤ì„ ê²€ìƒ‰ í›„ user_index ë°˜í™˜ 
+"select user_index from users where user_nickname = "+ì…ë ¥ëœ ë‹‰ë„¤ì„ ê°’ +";"
 
-//¸¸Á·ÇÏÁö ¾ÊÀ¸¸é
-"insert into collaboraters values('+ÀÔ·ÂµÈ user_index+"','"
-+ ÇöÀç diary_index + "','"+
-ÇöÀç ±³È¯¼ø¼­+"')"
+ì €ì¥í•œ user_indexë¥¼ ë‹¤ì‹œ collaboraterí…Œì´ë¸”ì— insert ìš”ì²­
+"insert into collaboraters values ("+ì…ë ¥ëœ user_index +", "+í˜„ì¬ diary_index +" ,"+ì…ë ¥ëœ êµí™˜ ìˆœì„œ+";"
 
-<ÀÏ±âÀå »èÁ¦>
-"delete from diaries where diary_index = "+»èÁ¦ÇÒ diary_index+";"
+<ì¼ê¸°ì¥ ìˆ˜ì •>
+ìˆ˜ì • updateí•´ì£¼ê¸°
+"update diaries set diary_name ='"+ìˆ˜ì •í•  ì´ë¦„+"', diary_passwd ='"+ìˆ˜ì •í•  ë¹„ë°€ë²ˆí˜¸+"', diary_"+ "
 
-ÀÏ±âÀå ÆäÀÌÁö
+<ë©¤ë²„ ìˆ˜ì •>
+ì²˜ìŒì— ë‹‰ë„¤ì„ì˜ user_indexê²€ìƒ‰
+"select u.user_index from users u, collaboraters c where u.user_nickname = "+ì…ë ¥ëœ ë‹‰ë„¤ì„ ê°’ +"and u.user_index = c.user_index;"
 
-ÀÏ±â ÀĞ¾î¿À±â
-"select * from paper where diary_index = "+ÀÔ·ÂµÈ diary_index+" order by created_date;"
+//ì´ê±°ë¥¼ ë§Œì¡±í•˜ëŠ” user_index
+"update collaboraters set user_index = "+ì…ë ¥ëœ user_index+", diary_index = "+ì…ë ¥ëœ diary index +", write_order = "+ì…ë ¥ëœ write_order +
+"where user_index = "+ì…ë ¥ëœ user_index "and diary index = "+ í˜„ì¬ ìˆ˜ì •í•œ diary_index+";"
 
-ÀÏ±â ¾²±â ÆäÀÌÁö
-"insert into paper(created_index, content, title, diary_index) values ('"+ÀÔ·ÂµÈ user_index+","+ÀÔ·ÂµÈ content+","+ÀÔ·ÂµÈ title+","+ÇöÀç diary_index+");"
+//ë§Œì¡±í•˜ì§€ ì•Šìœ¼ë©´
+"insert into collaboraters values('+ì…ë ¥ëœ user_index+"','"
++ í˜„ì¬ diary_index + "','"+
+í˜„ì¬ êµí™˜ìˆœì„œ+"')"
+
+<ì¼ê¸°ì¥ ì‚­ì œ>
+"delete from diaries where diary_index = "+ì‚­ì œí•  diary_index+";"
+
+ì¼ê¸°ì¥ í˜ì´ì§€
+
+ì¼ê¸° ì½ì–´ì˜¤ê¸°
+"select * from paper where diary_index = "+ì…ë ¥ëœ diary_index+" order by created_date;"
+
+ì¼ê¸° ì“°ê¸° í˜ì´ì§€
+"insert into paper(created_index, content, title, diary_index) values ('"+ì…ë ¥ëœ user_index+","+ì…ë ¥ëœ content+","+ì…ë ¥ëœ title+","+í˜„ì¬ diary_index+");"
 
 
 
