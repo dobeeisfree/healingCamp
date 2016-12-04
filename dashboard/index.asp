@@ -4,7 +4,7 @@
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
     <style>
     body {
-      background-image: url('/app/assets/images/dashdash.jpg');
+      background-image: url('app\assets\dash.png');
       /*background-color:black;*/
     }
     .btn{
