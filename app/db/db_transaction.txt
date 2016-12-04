@@ -15,7 +15,7 @@ select * from users where user_nickname =" + 입력된 nickname +";"
 "insert into USERS values ("+입력된 Id+","+입력된 nickname +","+입력된 password +"," + 입력된 name+");"
 
 데시보드 페이지
-"select * from diaries where diary_index IN (select diary_index from collaboraters where c.user_index = " 입력된 user_index+");"
+"select * from diaries where diary_index IN (select diary_index from collaboraters c where c.user_index = " 입력된 user_index+");"
 
 <일기장 생성>
 일기장 table insert
