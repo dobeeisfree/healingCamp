@@ -9,8 +9,8 @@ SET COLLABO_NUM = COLLABO_NUM+1
 WHERE @diary_index = DIARY_INDEX;
 
 ----------------------------------------------------------
-CREATE TRIGGER INSERT_PAPER
-ON PAPER
+CREATE TRIGGER INSERT_PAPERS
+ON PAPERS
 FOR INSERT
 AS 
 declare @diary_index varchar(20)
