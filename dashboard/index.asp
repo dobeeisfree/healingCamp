@@ -1,22 +1,13 @@
 <!-- TODO 자신이 참여한 일기방 목록을 보여준다 -->
+
+<!DOCTYPE html>
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
-    <style>
-    body {
-      background-image: url('app\assets\dash.png');
-      /*background-color:black;*/
-    }
-    .btn{
-      background-color:#cc6600;
-      color:white;
-    }
-    </style>
+    <link href="../app/assets/stylesheets/_dashboard/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-
-      <!-- <p><%response.write(date())%></p> -->
 
       <!-- user_nickname을 받아오는 작업 필요 -->
       <h1><%=Request.form("login_id")%>의 일기장</h1>
@@ -37,7 +28,6 @@
           </div>
       </div>
 
-      <script src="js/bootstrap.min.js"></script>
       <!-- <div class="btn-group" role="group" aria-label="..."> -->
         <button type="button" class="btn btn-default">수정</button>
         <button type="button" class="btn btn-default">삭제</button>
