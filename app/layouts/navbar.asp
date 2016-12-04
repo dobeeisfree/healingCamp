@@ -16,7 +16,7 @@
     </li>
     <% End IF %>
     <li class="nav-item">
-      <a class="nav-link" href="#">일기장</a>
+      <a class="nav-link" href="http://localhost/dashboard/index.asp">일기장</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">알림</a>

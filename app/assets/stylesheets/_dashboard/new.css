@@ -1,6 +1,12 @@
+body {
+  background-image:url('http://localhost/app/assets/images/12_e.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
 .text{
     margin-top: 100px;
-    margin-left: 500px;
+    margin-left: 400px;
 }
 
 .button_c{
@@ -12,4 +18,19 @@ div.button_c.form-group {
 }
 div.dashboardnewform {
   margin-left: 200px;
+}
+div.LeftSide {
+  float:left;
+  width: 45%;
+}
+div.RightSide {
+  float:right;
+  width: 55%;
+}
+p.description {
+  font-size: 50px;
+}
+.btn{
+  background-color:#cc6600;
+  color:white;
 }
