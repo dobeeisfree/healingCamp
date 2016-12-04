@@ -28,6 +28,17 @@ collabo테이블 insert
 "insert into collaboraters values("+입력된 +","+입력된 passwd+","+입력된 creater_index+");"
 
 
+<자기 차례에 알림주기>
+
+먼저 user가 참여한 diary_index와 교환순서를 받아온다(이거 행 단위로 배열 저장해야겠지)
+
+"select diary_index, writer_order from collaboraters where user_index = " +현재 user index +";"
+
+diary의 교환순서와 user의 교환순서를 비교한다. > 다이어리 이름 출력
+(행 단위로 값 넣어서 검사하렴)
+"select d.diary_name from diaries d, write_order o where o.diary_index = " + 앞에서 받은 diary_index + 
+" and o.current_num = "+아까 찾은 write_order +" and d.diary_index = o.diary_index;"
+
 //공유하는 user들 추가
 처음 닉네임 검색 후 user_index 반환 
 "select user_index from users where user_nickname = "+입력된 닉네임 값 +";"
