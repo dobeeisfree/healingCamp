@@ -5,17 +5,18 @@
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
+    <link href="../app/assets/stylesheets/_diary/new.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
 
     <form method=post action=dairies\index.asp>
-      <p>제목: <input type=text name="제목"></p>
-      <p>내용: <input type=text name="내용"></p>
-      <input type=submit value="작성완료">
+      <div id="content">
+        <p id="left_content">제목: <input type=text name="제목"></p>
+        <p class="right_content">내용: </p>
+        <p class="right_content"><textarea cols="30" rows="15"></textarea></p>
+        <input type=submit value="작성완료">
+      </div>
     </form>
   </body>
 </html>
