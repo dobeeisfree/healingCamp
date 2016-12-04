@@ -21,9 +21,13 @@ body {
   margin:50px;
   top: 20%;
   left: 10%;
+  background-color:black;
+  color:white;
 }
 .btn{
   position: fixed;
   top: 70%;
   left: 62%;
+  background-color:#cc6600;
+  color:white;
 }
