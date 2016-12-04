@@ -1,0 +1,19 @@
+body {
+  background-image:url('http://localhost/app/assets/images/back2.jpg');
+  background-repeat:no-repeat;
+  background-size: 1230px 600px;
+}
+#content{
+  margin: 120px 0 10px 0;
+}
+#left_content{
+  float: left;
+  margin: 0 0 10px 280px;
+}
+.right_content{
+  float:clear;
+  margin: 0 0 10px 700px;
+}
+#btn{
+  margin-left:790px;
+}

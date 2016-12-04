@@ -1,10 +1,12 @@
+<!-- TODO 자신이 참여한 일기방 목록을 보여준다 -->
+<!DOCTYPE html>
 <!--#include virtual="/healingCamp/app/utils/setup.asp" -->
 <!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
 <%
 ' 사용자의 일기방 목록 조회
 Dim strDashboardSQL, strConn, objRs
-Set objRs = Server.CreateObject("ADODB.Recordset")
 
+Set objRs = Server.CreateObject("ADODB.Recordset")
 strConn = connectionString
 strDashboardSQL = "select * from diaries where diary_index IN (select c.diary_index from collaboraters c where c.user_index = '" & Session("index") &"');"
 objRs.Open strDashboardSQL, strConn
@@ -13,20 +15,11 @@ objRs.Open strDashboardSQL, strConn
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
-    <!-- TODO 아래 style 태그 따로 css로 분리하기 -->
-    <style>
-    body {
-      background-image: url('/app/assets/images/dashdash.jpg');
-      /*background-color:black;*/
-    }
-    .btn{
-      background-color:#cc6600;
-      color:white;
-    }
-    </style>
+    <link href="../app/assets/stylesheets/_dashboard/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
+      <div class="content">
       <h1><%=Session("nickname")%>의 일기장</h1>
       <%
         If NOT objRs.EOF Then
