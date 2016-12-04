@@ -77,6 +77,8 @@ diary의 교환순서와 user의 교환순서를 비교한다. > 다이어리 �
 일기 쓰기 페이지
 "insert into paper(created_index, content, title, diary_index) values ('"+입력된 user_index+","+입력된 content+","+입력된 title+","+현재 diary_index+");"
 
+<일기 작성자 닉네임 받아오기>
+"select u.user_nickname from papers p, user u where p.creater_index = u.user_index and p.paper_index="+현재 페이지 index값+";"
 
 
 
