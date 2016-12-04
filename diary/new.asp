@@ -14,8 +14,8 @@
       <div id="content">
         <p id="left_content">제목: <input type=text name="제목"></p>
         <p class="right_content">내용: </p>
-        <p class="right_content"><textarea cols="30" rows="15"></textarea></p>
-        <input type=submit value="작성완료">
+        <p class="right_content"><textarea cols="30" rows="12"></textarea></p>
+        <p id="btn"> <input type=submit value="작성완료"></p>
       </div>
     </form>
   </body>
