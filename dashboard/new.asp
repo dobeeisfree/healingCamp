@@ -19,10 +19,10 @@
       <div class="button_c form-group">
         <p>일기장 정보를 입력해주세요</p>
         <label for="name">DIARY NAME</label>
-        <input type="text" class="form-control register" name="diary_name" placeholder="다이어리 이름을 입력해주세요">
+        <input type="text" class="form-control register" name="diary_name" placeholder="일기장 이름을 입력해주세요">
       </div>
 
-      <p align=left> * 멤버들의 닉네임을 적고 일기를 작성할 순서를 설정해주세요. 순서는 겹지면 안됩니다^_^* </p>
+      <p align=left> * 멤버들의 닉네임을 적고 일기를 작성할 순서를 설정해주세요. 순서는 겹치면 안됩니다^_^* </p>
       <div class="button_c form-group">
         <label for="name">MEMBER</label><br>
         <select name="order">
