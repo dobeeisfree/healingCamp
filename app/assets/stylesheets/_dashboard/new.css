@@ -1,5 +1,5 @@
 body {
-  background-image:url('http://localhost/app/assets/images/login_img.png');
+  background-image:url('http://localhost/app/assets/images/12_e.jpg');
   background-repeat:no-repeat;
   background-size:cover;
 }
@@ -18,6 +18,17 @@ div.button_c.form-group {
 }
 div.dashboardnewform {
   margin-left: 200px;
+}
+div.LeftSide {
+  float:left;
+  width: 45%;
+}
+div.RightSide {
+  float:right;
+  width: 55%;
+}
+p.description {
+  font-size: 50px;
 }
 .btn{
   background-color:#cc6600;

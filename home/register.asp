@@ -45,7 +45,6 @@
           <p><font size = "1.9" color = orange> 여러분은 닉네임을 가지고 활동합니다. <br></font></p>
         </div>
 
-        <script src="js/bootstrap.min.js"></script>
         <button type="reset" class="btn btn-default">다시쓰기</button>
         <button type="submit" class="btn btn-default">가입하기</button>
 
