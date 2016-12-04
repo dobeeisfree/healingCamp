@@ -8,7 +8,7 @@
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-
+      <div class="content">
       <h1><%=Request.form("login_id")%>의 일기장</h1>
 
       <div class="panel panel-default">
@@ -32,6 +32,7 @@
         <button type="button" class="btn btn-default">삭제</button>
         <button type="button" class="btn btn-default">새 일기장</button>
       <!-- </div> -->
+    </div>
   </body>
 </html>
 
