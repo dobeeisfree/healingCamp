@@ -22,6 +22,7 @@ objRs.Open strSQL, strConn
 '3 조회 확인
 If Not objRs.EOF Then
 	If passwd = objRs("user_password") Then
+		Session("index") = objRs("user_index")
 		Session("id") = id
 		Session("name") = objRs("user_name")
 		Session("nickname") = objRs("user_nickname")

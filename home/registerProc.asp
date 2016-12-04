@@ -32,7 +32,7 @@ Set DBCon = Nothing
 If affected<>0Then
 	Session("nickname") = nickname
 	Session("name") = name
-	Response.Redirect "/dashboard/index.asp"
+	Response.Redirect "/home/login.asp"
 Else
 	Response.Write "<script>alert('오류!!');history.back;</script>"
 End If
