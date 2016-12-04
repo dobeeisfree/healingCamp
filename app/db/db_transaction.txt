@@ -17,6 +17,9 @@ select * from users where user_nickname =" + 입력된 nickname +";"
 데시보드 페이지
 "select * from diaries where diary_index IN (select diary_index from collaboraters c where c.user_index = " 입력된 user_index+");"
 
+<해당 다이어리 인덱스의 멤버들을 보여줌>
+"select u.user_nickname from collaboraters c, users u where c.diary_index ="+해당 다이어리의 index+"and c.user_index = u.user_index;"
+
 <일기장 생성>
 일기장 table insert
 "insert into diaries values("+입력된 name+","+입력된 passwd+","+입력된 creater_index+");"

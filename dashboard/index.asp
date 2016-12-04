@@ -1,6 +1,17 @@
 <!-- TODO 자신이 참여한 일기방 목록을 보여준다 -->
-
 <!DOCTYPE html>
+<!--#include virtual="/healingCamp/app/utils/setup.asp" -->
+<!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
+<%
+' 사용자의 일기방 목록 조회
+Dim strDashboardSQL, strConn, objRs
+
+Set objRs = Server.CreateObject("ADODB.Recordset")
+strConn = connectionString
+strDashboardSQL = "select * from diaries where diary_index IN (select c.diary_index from collaboraters c where c.user_index = '" & Session("index") &"');"
+objRs.Open strDashboardSQL, strConn
+
+%>
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
@@ -9,39 +20,49 @@
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
       <div class="content">
-      <!-- <p><%response.write(date())%></p> -->
       <h1><%=Session("nickname")%>의 일기장</h1>
-
+      <%
+        If NOT objRs.EOF Then
+          Do Until objRs.EOF
+      %>
       <div class="panel panel-default">
-        <!-- 일기장 이름 -->
-        <div class="panel-heading"><h3 class="panel-title">일기장 이름<%Request.form("diary_name")%></h3></div>
-          <div class="panel-body">
-            일기 멤버
-          </div>
+        <div class="panel-heading"><h3 class="panel-title"><%=objRs("diary_name")%></h3></div>
+        <div class="panel-body">
+        <%
+        ' 변수 준비
+        Dim strMemberSQL, objRs_2
+        Set objRs_2 = Server.CreateObject("ADODB.Recordset")
+        strMemberSQL = "select u.user_nickname from collaboraters c, users u where c.diary_index =" & objRs("diary_index") & "and c.user_index = u.user_index;"
+        objRs_2.Open strMemberSQL, strConn
+
+        ' 각 다이어리의 멤버 닉네임 조회
+        If NOT objRs_2.EOF Then
+          Do Until objRs_2.EOF
+          %>
+          <b><%=objRs_2("user_nickname")%>♥</b>
+          <%
+            objRs_2.MoveNext
+          Loop
+        End if
+
+        ' 닫아주고
+        objRs_2.Close
+        Set objRs_2 = Nothing
+        %>
         </div>
-
-        <div class="panel panel-default">
-          <!-- 일기장 이름 -->
-          <div class="panel-heading"><h3 class="panel-title">일기장 이름<%Request.form("diary_name")%></h3></div>
-          <div class="panel-body">
-            일기 멤버
-          </div>
+        <a href="/diary/index.asp" role="button" class="btn btn-default" name="<%=objRs("diary_index")%>">펼쳐보기</a>
+        <a href="" role="button" class="btn btn-default" name="<%=objRs("diary_index")%>">수정</a>
+        <a href="" role="button" class="btn btn-default" name="<%=objRs("diary_index")%>">삭제</a>
       </div>
-
-      <!-- <div class="btn-group" role="group" aria-label="..."> -->
-        <button type="button" class="btn btn-default">수정</button>
-        <button type="button" class="btn btn-default">삭제</button>
-        <a class="btn btn-default" href="new.asp" role="button">새 일기장</a>
-      <!-- </div> -->
-    </div>
+      <%
+          objRs.MoveNext
+        Loop
+        End If
+      %>
+      <a class="btn btn-default" href="new.asp" role="button">새 일기장</a>
   </body>
 </html>
-
 <%
-' 1. 해당 유저가 참여한 일기방을 조회해서 가져온다.
-' 2. 목록별로 반복해서 DOM 형성
-
-' TODO 각 일기방 목록에는 수정과 삭제 버튼이 있다
+objRs.Close
+Set objRs = Nothing
 %>
-
-<!-- TODO 자신이 참여한 일기방 목록을 보여준다 -->
