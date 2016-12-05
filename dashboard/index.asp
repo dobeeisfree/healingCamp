@@ -54,9 +54,14 @@ objRs.Open strDashboardSQL, strConn
         <input type="hidden" name="p_index" value="디폴트">
         <button type="submit" class="btn btn-default">펼쳐보기</button>
       </form>
-      <!-- <a href="/diary/index.asp" role="button" class="btn btn-default" name="d_index" value="<%=objRs("diary_index")%>">펼쳐보기</a> -->
-      <a href="" role="button" class="btn btn-default" name="<%=objRs("diary_index")%>">수정</a>
-      <a href="" role="button" class="btn btn-default" name="<%=objRs("diary_index")%>">삭제</a>
+      <form name="diaryUpdateForm" action="/dashboard/modify.asp" method="post">
+        <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
+        <button type="submit" class="btn btn-default">수정</button>
+      </form>
+      <form name="diaryDeleteForm" action="/dashboard/destroy.asp" method="post">
+        <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
+        <button type="submit" class="btn btn-default">삭제</button>
+      </form>
     </div>
     <%
         objRs.MoveNext
