@@ -59,7 +59,7 @@ End If
         <form name="diaryPaging_prev" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") - 1%>">
-          <button type="submit" class="btn btn-primary">왼쪽</button>
+          <button id="btn_before" type="submit" class="btn btn-primary">이전 일기</button>
         </form>
         <% End If %>
         <% If CStr(p_index) = CStr(max_index) Then %>
@@ -67,7 +67,7 @@ End If
         <form name="diaryPaging_next" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") + 1%>">
-          <button type="submit" class="btn btn-default">오른쪽</button>
+          <button type="submit" class="btn btn-default">다음 일기</button>
         </form>
         <% End If %>
       </div>
@@ -99,7 +99,7 @@ End If
     <form name="diaryNewForm" action="/diary/new.asp" method="post">
       <div id="btn_write">
         <input type="hidden" name="d_index" value="<%=d_index%>">
-        <button type="submit" class="btn btn-default">이어쓰기</button>
+        <button id="btn_nextdiary" type="submit" class="btn btn-default">이어쓰기</button>
       </div>
     </form>
   </body>
