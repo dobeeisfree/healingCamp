@@ -1,5 +1,5 @@
 <!--#include virtual="/healingCamp/app/utils/setup.asp" -->
-<% If Session("nickname") = "" Then%>
+<!--#include virtual="/healingCamp/app/utils/isUserLogin.asp" -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,6 +39,3 @@
     <br><br><br>
   </body>
 </html>
-<% Else %>
-<% response.redirect "/dashboard/index.asp" %>
-<% End If %>
