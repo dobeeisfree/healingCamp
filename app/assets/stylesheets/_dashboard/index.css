@@ -25,3 +25,9 @@ h1{
   top: 10%;
   left: 23%;
 }
+button {
+  margin: 5px -400px 0px 415px;
+}
+#btn_new {
+  margin-left: 50px;
+}

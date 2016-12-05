@@ -53,7 +53,7 @@ End If
     <div id="left_content">
       <p>제목: <%=objRs("TITLE")%></p>
       <p>날짜: <%=objRs("CREATED_DATE")%></p>
-      <div class="btn-group" role="group" aria-label="...">
+      <div id="btn_page" class="btn-group" role="group" aria-label="...">
         <% If CStr(p_index) = CStr(1) Then %>
         <% Else %>
         <form name="diaryPaging_prev" action="/diary/index.asp" method="post">
@@ -97,8 +97,10 @@ End If
     End If
     %>
     <form name="diaryNewForm" action="/diary/new.asp" method="post">
-      <input type="hidden" name="d_index" value="<%=d_index%>">
-      <button type="submit" class="btn btn-default">이어쓰기</button>
+      <div id="btn_write">
+        <input type="hidden" name="d_index" value="<%=d_index%>">
+        <button type="submit" class="btn btn-default">이어쓰기</button>
+      </div>
     </form>
   </body>
 </html>

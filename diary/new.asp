@@ -2,7 +2,7 @@
 <%
 ' 일기 값들을 dairy/newProc.asp 로 전송
 d_index = Request("d_index")
-Response.Write "index = '" & d_index
+'Response.Write "index = '" & d_index
 %>
 <html>
   <head>
@@ -17,7 +17,7 @@ Response.Write "index = '" & d_index
         <input type="hidden" name="u_index" value="<%=Session("index")%>">
         <p id="left_content">제목: <input type=text name="paperTitle"></p>
         <p class="right_content">내용: </p>
-        <p class="right_content"><textarea cols="30" rows="12" name="paperContent"></textarea></p>
+        <p class="right_content"><textarea cols="37" rows="12" name="paperContent"></textarea></p>
         <p id="btn"> <button type="submit" class="btn btn-default">작성완료</button></p>
       </div>
     </form>
