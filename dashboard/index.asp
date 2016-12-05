@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!--#include virtual="/healingCamp/app/utils/setup.asp" -->
+<!--#include virtual="/healingCamp/app/utils/isUserLogin.asp" -->
 <!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
 <%
 ' 사용자의 일기방 목록 조회
