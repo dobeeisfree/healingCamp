@@ -1,3 +1,4 @@
+<!--#include virtual="/healingCamp/app/utils/setup.asp" -->
 <!-- 회원가입 페이지 -->
 <!-- TODO 회원가입 폼 -->
 <html>
@@ -24,8 +25,12 @@
           <label for="id">ID</label>
           <table>
             <tr>
-              <td><input type="text" class="form-control register" name="register_id" placeholder="아이디를 입력해주세요"></td>
-              <td><button type="button" name="btn btn-default">중복검사</button></td>
+              <td>
+                <input type="text" class="form-control register" name="register_id" placeholder="아이디를 입력해주세요"></td>
+              <td>
+                <input type="hidden" name="TocheckID">
+                <a role="button" href="checkUniqID.asp" class="btn btn-default">중복검사</a>
+              </td>
             </tr>
           </table>
         </div>
@@ -39,7 +44,7 @@
           <table>
             <tr>
               <td><input type="text" class="form-control register" name="register_nickname" placeholder="닉네임을 입력해주세요"></td>
-              <td><button type="button" name="btn btn-default">중복검사</button></td>
+              <td><a role="button" href="checkUniqName" name="btn btn-default">중복검사</button></td>
             </tr>
           </table>
           <p><font size = "1.9" color = orange> 여러분은 닉네임을 가지고 활동합니다. <br></font></p>
