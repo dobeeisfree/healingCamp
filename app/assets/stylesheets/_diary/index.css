@@ -1,11 +1,12 @@
 body {
   background-image:url('http://localhost/app/assets/images/back2.jpg');
   background-repeat:no-repeat;
-  background-size: 1230px 600px;
+  /*background-size:cover;*/
+  background-size: 1280px 700px;
 }
 #left_content{
   float: left;
-  margin: 0 0 10px 10px;
+  margin: 20px 0 10px 10px;
   position: relative;
   top: 20%;
   left: 23%;
@@ -13,9 +14,11 @@ body {
 #right_content{
   float:clear;
   position: fixed;
-  top: 31%;
+  top: 35%;
   left: 55%;
+  right: 20%;
 }
+
 .bt{
   position: relative;
   margin:50px;
