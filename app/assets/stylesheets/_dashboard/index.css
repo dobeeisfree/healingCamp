@@ -1,0 +1,26 @@
+body {
+  background-image:url('http://localhost/app/assets/images/index_back.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.btn{
+  background-color:#cc6600;
+  color:white;
+  position: relative;
+  top: 10%;
+  left: 35%;
+}
+h1{
+  background-color:#F5D08A;
+  font-weight:bold;
+  text-align:center;
+    width:600px;
+  box-shadow: 5px 5px 2px #888888;
+  border-radius:10px;
+  margin: 25px;
+}
+.content{
+  position: fixed;
+  top: 10%;
+  left: 23%;
+}

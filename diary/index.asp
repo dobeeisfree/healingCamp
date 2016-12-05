@@ -6,22 +6,26 @@
 <html>
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
+    <link href="../app/assets/stylesheets/_diary/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <div id="left_content">
+      <p>제목: <%Request.form("제목")%></p>
+      <!-- 일기 작성자가 일기 쓴 날짜를 저장해 놓고 받아와서 띄워주기 -->
+      <p>날짜: <%response.write(date())%></p>
 
-    <p>제목: <%Request.form("제목")%></p>
-    <p>날짜: <%response.write(date())%></p>
-    <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">왼쪽</button>
-      <button type="button" class="btn btn-default">오른쪽</button>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="bt btn-default"><</button>
+        <button type="button" class="bt btn-default">></button>
+      </div>
     </div>
-    <p>내용: <%Request.form("내용")%></p>
-    <p>FROM.<%Request.form("user_name")%></p>
-    <button type="button" class="btn btn-default">일기 이어쓰기</button>
 
+    <div id="right_content">
+      <p>내용: <%Request.form("내용")%></p>
+      <p>FROM.<%Request.form("user_name")%></p>
+
+      <button type="button" class="btn btn-default">일기 이어쓰기</button>
+    </div>
   </body>
 </html>

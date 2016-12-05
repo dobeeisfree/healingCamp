@@ -1,0 +1,33 @@
+body {
+  background-image:url('http://localhost/app/assets/images/back2.jpg');
+  background-repeat:no-repeat;
+  background-size: 1230px 600px;
+}
+#left_content{
+  float: left;
+  margin: 0 0 10px 10px;
+  position: relative;
+  top: 20%;
+  left: 23%;
+}
+#right_content{
+  float:clear;
+  position: fixed;
+  top: 31%;
+  left: 55%;
+}
+.bt{
+  position: relative;
+  margin:50px;
+  top: 20%;
+  left: 10%;
+  background-color:black;
+  color:white;
+}
+.btn{
+  position: fixed;
+  top: 70%;
+  left: 62%;
+  background-color:#cc6600;
+  color:white;
+}
