@@ -1,4 +1,5 @@
 <!--#include virtual="/healingCamp/app/utils/setup.asp" -->
+<!--#include virtual="/healingCamp/app/utils/isUserLogin.asp" -->
 <!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
 <%
 ' 변수 준비

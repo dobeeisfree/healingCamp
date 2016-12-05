@@ -9,6 +9,8 @@ If Session("nickname") = "" Then
   Response.End
   End If
 Else
+  If fileName = "/home/login.asp" Then
   response.redirect "/dashboard/index.asp"
+  End If
 End If
 %>
