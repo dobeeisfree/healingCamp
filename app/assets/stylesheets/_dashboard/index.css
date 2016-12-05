@@ -2,6 +2,7 @@ body {
   background-image:url('http://localhost/app/assets/images/index_back.png');
   background-repeat:no-repeat;
   background-size:cover;
+  overflow-y: scroll;
 }
 .btn{
   background-color:#cc6600;
