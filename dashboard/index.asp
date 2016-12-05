@@ -59,6 +59,7 @@ objRs.Open strDashboardSQL, strConn
               <button type="submit" class="btn btn-default">보기</button>
             </form>
           </td>
+          <% If objRs("creater_index") = Session("index") Then %>
           <td>
             <form name="diaryUpdateForm" action="/dashboard/modify.asp" method="post">
               <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
@@ -71,6 +72,7 @@ objRs.Open strDashboardSQL, strConn
             <button type="submit" class="btn btn-default">삭제</button>
           </form>
           </td>
+          <% End if %>
         </tr>
       </table>
     </div>
