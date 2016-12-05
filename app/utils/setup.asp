@@ -1,4 +1,5 @@
 <!--#include file="encoding.asp" -->
 <!--#include file="db.asp" -->
 <!--#include file="connectionString.asp" -->
+<!--#include file="currentUrl.asp" -->
 <!--#include file="isUserLogin.asp" -->
