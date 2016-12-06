@@ -8,10 +8,11 @@ d_index = Request("d_index")
   <head>
     <!--#include virtual="/healingCamp/app/layouts/main_head.html"-->
     <link href="../app/assets/stylesheets/_diary/new.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../app/assets/javascripts/diary/new.js"></script>
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-    <form method="post" action="newProc.asp">
+    <form method="post" action="newProc.asp" name="diary_Form" onsubmit="check();">
       <div id="content" class="input-group">
         <input type="hidden" class="form-control" name="d_index" value="<%=d_index%>">
         <input type="hidden" class="form-control" name="u_index" value="<%=Session("index")%>">
