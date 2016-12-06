@@ -32,9 +32,9 @@ Else
   ' diary의 교환순서와 user의 교환순서를 비교한다.
   ' 다이어리가 있다면
   ' 이름 출력
+  Redim arrDiaryName(rsCount)
+  i = 0
   If NOT objRsWO.EOF Then
-    Redim arrDiaryName(rsCount)
-    i = 0
     Do Until objRsWO.EOF
 
       Set objDir = Server.CreateObject("ADODB.Recordset")
@@ -59,7 +59,7 @@ Else
     Loop
   Else
 
-  Set arrDiaryName() = Nothing
+  'Set arrDiaryName() = Nothing
 
   End IF
 

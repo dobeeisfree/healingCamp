@@ -23,12 +23,12 @@
         Dim d_name_cnt
         d_name_cnt = 0
         For i=0 to rsCount step 1
-          If isArray(arrDiaryName) Then
-          Else
+          'If isArray(arrDiaryName) Then
+          'Else
             If arrDiaryName(i) = "" Then
             Else
             d_name_cnt = d_name_cnt + 1
-          End if
+          'End if
         %>
         <li><a class="nav-link"><%=CStr(arrDiaryName(i))%>, 쓸 시간이 왔어요!</a></li>
         <%
