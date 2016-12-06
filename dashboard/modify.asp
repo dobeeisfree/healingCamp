@@ -66,16 +66,16 @@ objRs_mem.Open strMemSQL, strConn
           <table>
             <%
             ' 각 다이어리의 멤버 닉네임 조회
-            Dim i
-            i = 1
+            Dim ii
+            ii = 1
             If NOT objRs_mem.EOF Then
             Do Until objRs_mem.EOF
             %>
             <tr>
               <td>
                 <fieldset disabled>
-                  <input type="text" id="disabledTextInput" class="form-control dashnew" name="register_mem_<%=i%>" value="<%=objRs_mem("user_nickname")%>" placeholder="멤버 닉네임을 입력해주세요"></td>
-                  <input type="hidden" name="mem_<%=i%>" value="<%=objRs_mem("user_index")%>">
+                  <input type="text" id="disabledTextInput" class="form-control dashnew" name="register_mem_<%=ii%>" value="<%=objRs_mem("user_nickname")%>" placeholder="멤버 닉네임을 입력해주세요"></td>
+                  <input type="hidden" name="mem_<%=ii%>" value="<%=objRs_mem("user_index")%>">
                 </fieldset>
               <td>
                 <%
@@ -102,7 +102,7 @@ objRs_mem.Open strMemSQL, strConn
               </td>
             </tr>
             <%
-            i = i + 1
+            ii = ii + 1
             objRs_mem.MoveNext
             Loop
             End if

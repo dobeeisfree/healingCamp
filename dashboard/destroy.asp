@@ -17,5 +17,8 @@ objDBConn.execute strDelSQL
 objDBConn.Close
 Set objDBConn = Nothing
 
-Response.Redirect "/dashboard/index.asp"
+Response.Redirect "/default.asp"
 %>
+<!-- <script>
+  history.back();
+</script> -->
