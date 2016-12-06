@@ -44,32 +44,43 @@ objRs.Open strDashboardSQL, strConn
           objRs_2.MoveNext
         Loop
       End if
-
-      ' 닫아주고
+      
       objRs_2.Close
       Set objRs_2 = Nothing
       %>
       </div>
-      <form name="diaryForm" action="/diary/index.asp" method="post">
-        <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
-        <input type="hidden" name="p_index" value="디폴트">
-        <button type="submit" class="btn btn-default">펼쳐보기</button>
-      </form>
-      <form name="diaryUpdateForm" action="/dashboard/modify.asp" method="post">
-        <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
-        <button type="submit" class="btn btn-default">수정</button>
-      </form>
-      <form name="diaryDeleteForm" action="/dashboard/destroy.asp" method="post">
-        <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
-        <button type="submit" class="btn btn-default">삭제</button>
-      </form>
+      <table>
+        <tr>
+          <td>
+            <form name="diaryForm" action="/diary/auth.asp" method="post">
+              <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
+              <input type="hidden" name="p_index" value="디폴트">
+              <button type="submit" class="btn btn-default">보기</button>
+            </form>
+          </td>
+          <% If objRs("creater_index") = Session("index") Then %>
+          <td>
+            <form name="diaryUpdateForm" action="/dashboard/modify.asp" method="post">
+              <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
+              <button type="submit" class="btn btn-default">수정</button>
+            </form>
+          </td>
+          <td>
+          <form name="diaryDeleteForm" action="/dashboard/destroy.asp" method="post">
+            <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
+            <button type="submit" class="btn btn-default">삭제</button>
+          </form>
+          </td>
+          <% End if %>
+        </tr>
+      </table>
     </div>
     <%
         objRs.MoveNext
       Loop
       End If
     %>
-    <a class="btn btn-default" href="new.asp" role="button">새 일기장</a>
+    <a id="btn_new" class="btn btn-default" href="new.asp" role="button">새 일기장</a>
     </div>
   </body>
 </html>

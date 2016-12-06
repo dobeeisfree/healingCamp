@@ -2,7 +2,7 @@ body {
   background-image:url('http://localhost/app/assets/images/index_back.png');
   background-repeat:no-repeat;
   background-size:cover;
-  overflow-y: scroll;
+
 }
 .btn{
   background-color:#cc6600;
@@ -24,4 +24,12 @@ h1{
   position: fixed;
   top: 10%;
   left: 23%;
+  height:550px;
+  overflow-y:scroll;
+}
+button {
+  margin: 5px -400px 0px 415px;
+}
+#btn_new {
+  margin-left: 50px;
 }

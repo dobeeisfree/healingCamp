@@ -1,8 +1,8 @@
 function check(){
   var blank = 0 ;
-  if (FORM1.login_id.value == "")
+  if (loginForm.user_id.value == "")
   blank = 1 ;
-  if (FORM1.login_pwd.value == "")
+  if (loginForm.user_pwd.value == "")
   blank = 1 ;
   if (blank ==1)
   {
