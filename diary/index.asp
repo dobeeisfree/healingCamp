@@ -20,7 +20,10 @@ objRs.Open strDiarySQL, strConn
 Set objRs_Last = Server.CreateObject("ADODB.Recordset")
 strTopSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date desc;"
 objRs_Last.Open strTopSQL, strConn
-max_index = objRs_Last("paper_index")
+
+If objRs_Last("paper_index") Is Nothing Then
+  max_index = ""
+End If
 
 Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
 strCountSQL = "select COUNT(PAPERS.PAPER_INDEX) paper_count from papers;"
@@ -48,6 +51,12 @@ End If
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
+    <% If max_index = "" Then %>
+    <div id="right_content">
+      <h4>아직 일기가..!</h4>
+      <h4>한번 작성해보는게 어떨까요?</h4>
+    </div>
+    <% End If%>
     <%
     If NOT objRs.EOF Then
     	Do Until objRs.EOF
