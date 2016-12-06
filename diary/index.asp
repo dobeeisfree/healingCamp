@@ -3,12 +3,15 @@
 <!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
 <%
 ' 변수 준비
-Dim strDiarySQL, strConn, strTopSQL, strCountSQL
-Dim objRs, objRs_Last, objRs_COUNT
+Dim strDiarySQL, strConn, strTopSQL, strCountSQL, strDirInfo
+Dim objRs, objRs_Last, objRs_COUNT, objRs_DirInfo
 Dim d_index, p_index, max_index, min_index
+Dim isYourTurn
+
 
 d_index = Request("d_index")
 p_index = Request("p_index")
+
 
 ' 레코드셋 열어서
 Set objRs = Server.CreateObject("ADODB.Recordset")
@@ -16,7 +19,8 @@ strConn = connectionString
 strDiarySQL = "select * from papers where diary_index = '" & d_index & "' order by created_date desc;"
 objRs.Open strDiarySQL, strConn
 
-' 현재 모델을 카운트 해놓은 상태에서
+
+' 현재 모델의 마지막번째 필드의 paper_index 조회
 Set objRs_Last = Server.CreateObject("ADODB.Recordset")
 strTopSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date desc;"
 objRs_Last.Open strTopSQL, strConn
@@ -27,6 +31,8 @@ Else
   max_index = objRs_Last("paper_index")
 End If
 
+
+' 현재 모델의 첫번째 필드의 paper_index 조회
 Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
 strCountSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date;"
 objRs_COUNT.Open strCountSQL, strConn
@@ -45,12 +51,32 @@ objRs_COUNT.Close
 Set objRs_Last = Nothing
 Set objRs_COUNT = Nothing
 
+
 ' 페이징의 디폴트을 확인한다. 최신 일기를 위하여
 ' 디폴트 값은 dashboard/index.asp에서 펼쳐보기를 클릭했을 경우
 ' 가져와진다.
 If p_index = "디폴트" Then
   p_index = max_index
 End If
+
+
+' 또한, 자기 차례인지 알기 위해 조회
+strDirInfo = "select * from diaries where diary_index = "& d_index & ";"
+Set objRs_DirInfo = Server.CreateObject("ADODB.Recordset")
+isYourTurn = false
+objRs_DirInfo.Open strDirInfo, strConn
+
+For i=0 to rsCount step 1
+  If arrDiaryName(i) = "" Then
+  Else
+    If CStr(arrDiaryName(i)) = objRs_DirInfo("diary_name") Then
+      isYourTurn = true
+      Else
+      isYourTurn = false
+    End If
+  End If
+Next
+
 %>
 <html>
   <head>
@@ -117,12 +143,14 @@ End If
       Loop
     End If
     %>
+    <% If  isYourTurn = true Then %>
     <form name="diaryNewForm" action="/diary/new.asp" method="post">
       <div id="btn_write">
         <input type="hidden" name="d_index" value="<%=d_index%>">
         <button id="btn_nextdiary" type="submit" class="btn btn-default">이어쓰기</button>
       </div>
     </form>
+    <% End If %>
   </body>
 </html>
 <%
