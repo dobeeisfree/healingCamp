@@ -27,7 +27,7 @@
         <label for="diarypassword">PASSWORD</label>
         <p align=left> * 일기장 비밀번호는 4자리로 설정해주세요 * </p>
         <div class="button_c form-group">
-          <input type="text" class="form-control dashnew" name="diaryPwd" placeholder="비밀번호 설정">
+          <input type="password" class="form-control dashnew" name="diaryPwd" placeholder="비밀번호 설정">
         </div>
 
         <button type="submit" class="btn btn-default">생성완료</button>

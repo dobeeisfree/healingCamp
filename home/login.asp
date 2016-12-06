@@ -23,7 +23,7 @@
             </p>
             <div class="button_c form-group">
               <label for="ID">ID</label>
-              <input type="text"  name="user_id" class="form-control login" id="ID" placeholder="아이디를 입력해주세요">
+              <input type="text" name="user_id" class="form-control login" id="ID" placeholder="아이디를 입력해주세요">
             </div>
             <div class="button_c form-group">
               <label for="PASSWORD">PASSWORD</label>
