@@ -53,7 +53,7 @@ objRs.Open strDashboardSQL, strConn
       <table>
         <tr>
           <td>
-            <form name="diaryForm" action="/diary/index.asp" method="post">
+            <form name="diaryForm" action="/diary/auth.asp" method="post">
               <input type="hidden" name="d_index" value="<%=objRs("diary_index")%>">
               <input type="hidden" name="p_index" value="디폴트">
               <button type="submit" class="btn btn-default">보기</button>
