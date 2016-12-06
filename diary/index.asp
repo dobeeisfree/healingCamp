@@ -77,6 +77,9 @@ For i=0 to rsCount step 1
   End If
 Next
 
+objRs_DirInfo.Close
+Set objRs_DirInfo = Nothing
+
 %>
 <html>
   <head>
@@ -89,7 +92,11 @@ Next
     <% If max_index = empty Or min_index = empty Then %>
     <div id="right_content">
       <h4>아직 일기가..!</h4>
+      <% If  isYourTurn = true Then %>
       <h4>한번 작성해보는게 어떨까요?</h4>
+      <% Else %>
+      <h4>맴버의 일기, 기다려야겠는데요!</h4>
+      <% End If%>
     </div>
     <% End If %>
     <%

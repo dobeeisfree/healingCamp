@@ -5,14 +5,14 @@
 
 ' 변수 준비
 Dim paperTitle, paperContent
-Dim u_index, d_index
+Dim us_index, d_index
 
 paperTitle = Request("paperTitle")
 Response.Write paperTitle
 paperContent = Request("paperContent")
 Response.Write paperContent
-u_index = Request("u_index")
-Response.Write u_index
+us_index = Request("u_index")
+Response.Write us_index
 d_index = Request("d_index")
 Response.Write d_index
 
@@ -23,7 +23,7 @@ DBcon.Open(connectionString)
 
 '
 strSQL = "INSERT INTO PAPERS (CREATER_INDEX, content, title, diary_index)" & _
-		 "VALUES ('" & u_index & "', '" & _
+		 "VALUES ('" & us_index & "', '" & _
 					   paperContent & "', '" & _
 					   paperTitle & "', '" & _
 					  d_index & "')"

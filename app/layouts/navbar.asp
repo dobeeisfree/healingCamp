@@ -19,12 +19,25 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">알림 <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <% For i=0 to rsCount step 1 %>
-        <% If arrDiaryName(i) = "" Then %>
-        <% Else %>
+        <%
+        Dim d_name_cnt
+        d_name_cnt = 0
+        For i=0 to rsCount step 1
+          If arrDiaryName(i) = "" Then
+          Else
+            d_name_cnt = d_name_cnt + 1
+        %>
         <li><a class="nav-link"><%=CStr(arrDiaryName(i))%>, 쓸 시간이 왔어요!</a></li>
-        <% End IF%>
-        <% Next %>
+        <%
+          End IF
+        Next
+
+        If d_name_cnt = 0 Then
+        %>
+        <li><a class="nav-link">아직 쓸 수 있는 일기가 없어요!</a></li>
+        <%
+        End If
+        %>
       </ul>
     </li>
     <li class="nav-item">
