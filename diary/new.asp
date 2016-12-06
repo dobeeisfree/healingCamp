@@ -12,13 +12,13 @@ d_index = Request("d_index")
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
     <form method="post" action="newProc.asp">
-      <div id="content">
-        <input type="hidden" name="d_index" value="<%=d_index%>">
-        <input type="hidden" name="u_index" value="<%=Session("index")%>">
-        <p id="left_content">제목: <input type=text name="paperTitle"></p>
+      <div id="content" class="input-group">
+        <input type="hidden" class="form-control" name="d_index" value="<%=d_index%>">
+        <input type="hidden" class="form-control" name="u_index" value="<%=Session("index")%>">
+        <p id="left_content" >제목: <input type=text class="form-control" name="paperTitle"></p>
         <p class="right_content">내용: </p>
-        <p class="right_content"><textarea cols="37" rows="12" name="paperContent"></textarea></p>
-        <p id="btn"> <button type="submit" class="btn btn-default">작성완료</button></p>
+        <p class="right_content"><textarea  class="form-control" cols="37" rows="12" name="paperContent"></textarea></p>
+        <p id="btn"> <button type="submit" id="btn_finish" class="btn btn-default">작성완료</button></p>
       </div>
     </form>
   </body>

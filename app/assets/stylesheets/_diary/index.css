@@ -33,3 +33,11 @@ body {
   background-color:#cc6600;
   color:white;
 }
+#btn_nextdiary{
+  align-items: right;
+  margin-top: 460px;
+  margin-left: 735px;
+}
+#btn_before{
+  margin-top: 210px;
+}
