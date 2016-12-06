@@ -16,7 +16,7 @@ p_index = Request("p_index")
 ' 레코드셋 열어서
 Set objRs = Server.CreateObject("ADODB.Recordset")
 strConn = connectionString
-strDiarySQL = "select * from papers where diary_index = '" & d_index & "' order by created_date desc;"
+strDiarySQL = "select * from papers where diary_index = '" & d_index & "' order by created_date desc"
 objRs.Open strDiarySQL, strConn
 
 
@@ -35,6 +35,7 @@ End If
 ' 현재 모델의 첫번째 필드의 paper_index 조회
 Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
 strCountSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date;"
+objRs_COUNT.cursortype =  1
 objRs_COUNT.Open strCountSQL, strConn
 
 If objRs_COUNT.EOF Then
@@ -103,12 +104,15 @@ Set objRs_DirInfo = Nothing
     If NOT objRs.EOF Then
     	Do Until objRs.EOF
         If CStr(objRs("PAPER_INDEX")) = CStr(p_index) Then
+        'Response.Write objRs("PAPER_INDEX") & "<br>"
+        'Response.Write min_index & "<br>"
+        'Response.Write max_index & "<br>"
     %>
     <div id="left_content">
       <p>제목: <%=objRs("TITLE")%></p>
       <p>날짜: <%=objRs("CREATED_DATE")%></p>
       <div id="btn_page" class="btn-group" role="group" aria-label="...">
-        <% If CStr(p_index) > CStr(min_index) Then %>
+        <% If p_index > min_index Then %>
         <form name="diaryPaging_prev" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") - 1%>">
@@ -119,7 +123,7 @@ Set objRs_DirInfo = Nothing
         <% If CStr(p_index) < CStr(max_index) Then %>
         <form name="diaryPaging_next" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
-          <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") + 1%>">
+          <input type="hidden" name="p_index" value="<%=objRs.MoveNext%>">
           <button type="submit" class="btn btn-default">다음 일기</button>
         </form>
         <% Else %>
