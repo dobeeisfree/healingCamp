@@ -3,13 +3,12 @@
 <!--#include virtual="/healingCamp/app/utils/adovbs.inc" -->
 <%
 ' 변수 준비
-Dim strDiarySQL, strConn, strCountSQL
-Dim objRs, objRs_Last
-Dim d_index, p_index, max_index
+Dim strDiarySQL, strConn, strTopSQL, strCountSQL
+Dim objRs, objRs_Last, objRs_COUNT
+Dim d_index, p_index, max_index, min_index
 
 d_index = Request("d_index")
 p_index = Request("p_index")
-
 
 ' 레코드셋 열어서
 Set objRs = Server.CreateObject("ADODB.Recordset")
@@ -17,18 +16,22 @@ strConn = connectionString
 strDiarySQL = "select * from papers where diary_index = '" & d_index & "' order by created_date desc;"
 objRs.Open strDiarySQL, strConn
 
-
 ' 현재 모델을 카운트 해놓은 상태에서
 Set objRs_Last = Server.CreateObject("ADODB.Recordset")
-strCountSQL = "select COUNT(PAPERS.PAPER_INDEX) paper_count from papers;"
-objRs_Last.Open strCountSQL, strConn
-max_index = objRs_Last("paper_count")
+strTopSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date desc;"
+objRs_Last.Open strTopSQL, strConn
+max_index = objRs_Last("paper_index")
 
+Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
+strCountSQL = "select COUNT(PAPERS.PAPER_INDEX) paper_count from papers;"
+objRs_COUNT.Open strCountSQL, strConn
+min_index = objRs_COUNT("paper_count")
 
 ' 카운트 했으니 종료하고
 objRs_Last.Close
+objRs_COUNT.Close
 Set objRs_Last = Nothing
-
+Set objRs_COUNT = Nothing
 
 ' 페이징의 디폴트을 확인한다. 최신 일기를 위하여
 ' 디폴트 값은 dashboard/index.asp에서 펼쳐보기를 클릭했을 경우
@@ -48,27 +51,29 @@ End If
     <%
     If NOT objRs.EOF Then
     	Do Until objRs.EOF
+      'Response.Write "모델의 일기 인덱스" & objRs("PAPER_INDEX") & "<br>"
+      'Response.Write "가지고 있는 일기인덱스" & p_index & "<br>"
         If CStr(objRs("PAPER_INDEX")) = CStr(p_index) Then
     %>
     <div id="left_content">
       <p>제목: <%=objRs("TITLE")%></p>
       <p>날짜: <%=objRs("CREATED_DATE")%></p>
       <div id="btn_page" class="btn-group" role="group" aria-label="...">
-        <% If CStr(p_index) = CStr(1) Then %>
-        <% Else %>
+        <% If CStr(p_index - min_index) <> CStr(min_index) Then %>
         <form name="diaryPaging_prev" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") - 1%>">
           <button id="btn_before" type="submit" class="btn btn-primary">이전 일기</button>
         </form>
-        <% End If %>
-        <% If CStr(p_index) = CStr(max_index) Then %>
         <% Else %>
+        <% End If %>
+        <% If CStr(p_index) < CStr(max_index) Then %>
         <form name="diaryPaging_next" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") + 1%>">
           <button type="submit" class="btn btn-default">다음 일기</button>
         </form>
+        <% Else %>
         <% End If %>
       </div>
     </div>
