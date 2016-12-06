@@ -44,6 +44,9 @@ objRs.Open strDashboardSQL, strConn
           objRs_2.MoveNext
         Loop
       End if
+      
+      objRs_2.Close
+      Set objRs_2 = Nothing
       %>
       </div>
       <table>
@@ -82,8 +85,6 @@ objRs.Open strDashboardSQL, strConn
   </body>
 </html>
 <%
-objRs_2.Close
 objRs.Close
-Set objRs_2 = Nothing
 Set objRs = Nothing
 %>
