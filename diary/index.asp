@@ -30,7 +30,13 @@ End If
 Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
 strCountSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date;"
 objRs_COUNT.Open strCountSQL, strConn
-min_index = objRs_COUNT("paper_index")
+
+If objRs_COUNT.EOF Then
+  min_index = ""
+Else
+  min_index = objRs_COUNT("paper_index")
+End IF
+
 
 
 ' 카운트 했으니 종료하고
@@ -54,7 +60,7 @@ End If
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
-    <% If max_index = empty Then %>
+    <% If max_index = empty Or min_index = empty Then %>
     <div id="right_content">
       <h4>아직 일기가..!</h4>
       <h4>한번 작성해보는게 어떨까요?</h4>
