@@ -20,12 +20,18 @@ objRs.Open strDiarySQL, strConn
 Set objRs_Last = Server.CreateObject("ADODB.Recordset")
 strTopSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date desc;"
 objRs_Last.Open strTopSQL, strConn
-max_index = objRs_Last("paper_index")
+
+If objRs_Last.EOF Then
+  max_index = ""
+Else
+  max_index = objRs_Last("paper_index")
+End If
 
 Set objRs_COUNT = Server.CreateObject("ADODB.Recordset")
-strCountSQL = "select COUNT(PAPERS.PAPER_INDEX) paper_count from papers;"
+strCountSQL = "select  TOP 1 * from papers where diary_index = '"& d_index &"' order by created_date;"
 objRs_COUNT.Open strCountSQL, strConn
-min_index = objRs_COUNT("paper_count")
+min_index = objRs_COUNT("paper_index")
+
 
 ' 카운트 했으니 종료하고
 objRs_Last.Close
@@ -48,18 +54,22 @@ End If
   </head>
   <body>
     <!--#include virtual="/healingCamp/app/layouts/navbar.asp"-->
+    <% If max_index = empty Then %>
+    <div id="right_content">
+      <h4>아직 일기가..!</h4>
+      <h4>한번 작성해보는게 어떨까요?</h4>
+    </div>
+    <% End If %>
     <%
     If NOT objRs.EOF Then
     	Do Until objRs.EOF
-      'Response.Write "모델의 일기 인덱스" & objRs("PAPER_INDEX") & "<br>"
-      'Response.Write "가지고 있는 일기인덱스" & p_index & "<br>"
         If CStr(objRs("PAPER_INDEX")) = CStr(p_index) Then
     %>
     <div id="left_content">
       <p>제목: <%=objRs("TITLE")%></p>
       <p>날짜: <%=objRs("CREATED_DATE")%></p>
       <div id="btn_page" class="btn-group" role="group" aria-label="...">
-        <% If CStr(p_index - min_index) <> CStr(min_index) Then %>
+        <% If CStr(p_index) > CStr(min_index) Then %>
         <form name="diaryPaging_prev" action="/diary/index.asp" method="post">
           <input type="hidden" name="d_index" value="<%=d_index%>">
           <input type="hidden" name="p_index" value="<%=objRs("PAPER_INDEX") - 1%>">
