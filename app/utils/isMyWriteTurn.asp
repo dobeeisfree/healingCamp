@@ -28,38 +28,39 @@ Else
   objCNT.Close
   Set objCNT = Nothing
 
-  Redim arrDiaryName(rsCount)
-  i = 0
 
   ' diary의 교환순서와 user의 교환순서를 비교한다.
   ' 다이어리가 있다면
   ' 이름 출력
   If NOT objRsWO.EOF Then
+    Redim arrDiaryName(rsCount)
+    i = 0
     Do Until objRsWO.EOF
 
-    'Response.Write objRsWO("diary_index") &"<br>"
-    'Response.Write "<br> wr.."&objRsWO("writer_order") &"<br>"
+      Set objDir = Server.CreateObject("ADODB.Recordset")
+      strDSQL = "select d.diary_name " &_
+                "from diaries d, write_order o" &_
+                " where o.diary_index = " & objRsWO("diary_index") &_
+                " and o.current_num = " & objRsWO("writer_order") &_
+                " and d.diary_index = o.diary_index;"
+      objDir.Open strDSQL, strConn
 
-    Set objDir = Server.CreateObject("ADODB.Recordset")
-    strDSQL = "select d.diary_name " &_
-              "from diaries d, write_order o" &_
-              " where o.diary_index = " & objRsWO("diary_index") &_
-              " and o.current_num = " & objRsWO("writer_order") &_
-              " and d.diary_index = o.diary_index;"
-    objDir.Open strDSQL, strConn
+      If objDir.EOF Then
+      Else
+        arrDiaryName(i) = objDir("diary_name")
+      End If
 
-    If objDir.EOF Then
-    Else
-      arrDiaryName(i) = objDir("diary_name")
-    End If
+      objDir.Close
+      Set objRsDir = Nothing
 
-    objDir.Close
-    Set objRsDir = Nothing
-
-    i = i + 1
-    objRsWO.MoveNext
+      i = i + 1
+      objRsWO.MoveNext
 
     Loop
+  Else
+
+  Set arrDiaryName() = Nothing
+
   End IF
 
   ' arrDiaryName 배열
