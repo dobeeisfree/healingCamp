@@ -22,9 +22,15 @@
         <%
         Dim d_name_cnt
         d_name_cnt = 0
+
+        if isEmpty(rsCount) Then
+          rsCount = 0
+          Redim arrDiaryName(rsCount)
+        End If
+
         For i=0 to rsCount step 1
           If isEmpty(arrDiaryName) Then
-           Redim arrDiaryName(rsCount)
+            Redim arrDiaryName(rsCount)
           Else
             If arrDiaryName(i) = "" Then
             Else
